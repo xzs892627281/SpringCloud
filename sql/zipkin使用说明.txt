@@ -1,0 +1,2 @@
+官方下载地址：$ curl -sSL https://zipkin.io/quickstart.sh | bash -s
+需要修改rabbit和mysql信息，请自行修改后重新打包

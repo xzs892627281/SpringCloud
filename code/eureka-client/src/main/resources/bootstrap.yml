@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: eureka-client
+  cloud:
+    config:
+      discovery:
+        #允许以服务注册形式发现服务端
+        enabled: true
+        #服务端应用名
+        serviceId: config-server
+      profile: dev
+      label: master
+      failFast: true
+  #rabbit信息
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+  zipkin:
+    sender:
+      #服务追踪收集方式
+      type: rabbit
+  sleuth:
+    sampler:
+      #集追踪信息的比率，如果是0.1则表示只记录10%的追踪数据，如果要全部追踪，设置为1
+      probability: 1
+server:
+  port: 2001
+eureka:
+  client:
+    service-url:
+      #服务注册地址，多服务端以逗号分隔
+      defaultZone: http://localhost:1001/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        #springboot2.0以后手动开启动态刷新接口
+        include: bus-refresh
+  server:
+    #监控端口
+    port: 9001
+logging:
+  file: ${spring.application.name}.log
+swagger:
+  #swagger扫描的包
+  base-package: com.cmhk
+ribbon:
+  eager-load:
+    #开始ribbon饥饿加载
+    enabled: true
+    #ribbon饥饿加载客户端
+    clients: eureka-client,eureka-consumer

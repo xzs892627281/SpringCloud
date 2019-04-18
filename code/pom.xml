@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cmhk</groupId>
+    <artifactId>spring-cloud-cmhk</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+
+    <modules>
+        <!--服务注册中心-->
+        <module>eureka-server</module>
+        <!--业务逻辑 -->
+        <module>eureka-client</module>
+        <module>eureka-consumer</module>
+        <module>eureka-jar</module>
+        <!--分布式配置中心-->
+        <module>config-server</module>
+        <!--熔断器监控服务端-->
+        <module>hystrix-dashboard</module>
+        <!--turbine聚合hystrix数据 -->
+        <module>turbine</module>
+        <module>turbine-amqp</module>
+        <!--api网关-->
+        <module>gateway</module>
+    </modules>
+
+</project>

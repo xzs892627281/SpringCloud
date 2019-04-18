@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 1001
+eureka:
+  client:
+    serviceUrl:
+      #注册中心地址，当启动多个服务端时把自己注册到其他服务端
+#      defaultZone: http://localhost:1002/eureka/
+      #当启动单个服务端时使用，禁止客户端服务注册行为
+    fetch-registry: false
+    register-with-eureka: false

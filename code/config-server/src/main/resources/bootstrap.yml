@@ -1,0 +1,37 @@
+spring:
+  #配置中心仓库形式，可以为git仓库，数据库，本地文件
+  profiles:
+    active: jdbc
+  application:
+    name: config-server
+  datasource:
+    #数据源连接
+    url: jdbc:mysql://localhost:3306/spring_cloud?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&serverTimezone=GMT%2B8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    config:
+      server:
+        jdbc:
+          #查询数据库的sql语句，该语句的字段必须与数据库的表字段一致
+          sql: SELECT key1, value1 from config_properties where APPLICATION=? and PROFILE=? and LABEL=?
+  #rabbit信息
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+server:
+  port: 7001
+eureka:
+  client:
+    serviceUrl:
+      #服务注册地址，多服务端以逗号分隔
+      defaultZone: http://localhost:1001/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        #springboot2.0以后手动开启动态刷新接口
+        include: bus-refresh

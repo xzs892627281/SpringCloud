@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: turbine-amqp
+  #rabbit信息
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+server:
+  port: 8989
+#监控端口
+management:
+  server:
+    port: 9989
+eureka:
+  client:
+    service-url:
+      #服务注册地址，多服务端以逗号分隔
+      defaultZone: http://localhost:1001/eureka/

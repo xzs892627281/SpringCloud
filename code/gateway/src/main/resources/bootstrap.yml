@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          #开启服务注册和发现的功能
+          enabled: true
+          #将请求路径上的服务名配置为小写
+          lower-case-service-id: true
+server:
+  port: 11000
+eureka:
+  client:
+    serviceUrl:
+      #服务注册地址，多服务端以逗号分隔
+      defaultZone: http://localhost:1001/eureka/
